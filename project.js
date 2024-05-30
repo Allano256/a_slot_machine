@@ -22,12 +22,25 @@ const prompt = require("prompt-sync")();
 const ROWS =3;
 const COLS = 3;
 
+ //10.
+ //These are the possible u can have in each wheel, which we shall randomly select from
 const SYMBOLS_COUNT = {
       "A" :2,
       "B" :4,
       "C" :6,
       "D": 8
 }
+
+//11.
+ //This is what shall be multiplied by the bet, so a line of A multiplies by 5 osv. 
+ //This is the multiplier of the value of each symbol
+const SYMBOL_VALUES = {
+        "A": 5,
+        "B": 4,
+        "C": 3,
+        "D": 2
+}
+
 
 
 const deposit = () => {
