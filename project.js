@@ -206,23 +206,42 @@ const getWinnings = (rows, bet, lines) => {
    return winnings;
 };
 
-//17. //7. Play again
+//17.
+
+//7. Play again
 //You wrap all the parts at the bottom of the coe and include a  while loop and call the function at the bottom
 
 const game = () => {
    //8.Create a variable to hold the deposit which shall be their balance and has to be a "let"
 let balance = deposit();
   while (true) {
+   //20. console.log("You have a balance of $" + balance);
      //7.
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
+//18.
+balance -= bet * numberOfLines;
+
 const reels = spin();
 const rows = transpose(reels)
 printRows(rows);
 const winnings = getWinnings(rows, bet, numberOfLines);
+//19.
+ balance += winnings;
 console.log("You won, $" + winnings.toString());
+   
+   //20.
+   if (balance <= 0){
+      console.log("You ran out of money");
+      break;
+   }
+
+   const playAgain = prompt("Do you want to play again (y/n)?");
+
+   if(playAgain != "y") break;
 
   }
+
 };
 
 game();
