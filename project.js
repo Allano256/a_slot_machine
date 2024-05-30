@@ -25,20 +25,20 @@ const COLS = 3;
  //10.
  //These are the possible u can have in each wheel, which we shall randomly select from
 const SYMBOLS_COUNT = {
-      "A" :2,
-      "B" :4,
-      "C" :6,
-      "D": 8
+      A :2,
+      B:4,
+      C :6,
+      D: 8
 }
 
 //11.
  //This is what shall be multiplied by the bet, so a line of A multiplies by 5 osv. 
  //This is the multiplier of the value of each symbol
 const SYMBOL_VALUES = {
-        "A": 5,
-        "B": 4,
-        "C": 3,
-        "D": 2
+        A: 5,
+        B: 4,
+        C: 3,
+        D: 2
 }
 
 
@@ -115,7 +115,35 @@ const getBet = (balance, lines) =>{
 
 //4.Spin the slot machine
 
+//12. Spinning the wheel basically epends omn the symbol_count and how many symbols we have in the wheel
+//And determine if the user won anything
+//Generate the wheels
+//You have the symbol an count to give you the letter an coreresponing value attache to it
 
+const spin = () => {
+  const symbols = [];
+  //Here we iterate through the symbols
+  for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)){
+
+        //Then we have another for loop to push the results into the symbols array
+        for(let i = 0; i < count; i++){
+            symbols.push(symbol);
+        }
+  }
+  //13.Select the results randomly into our wheels,each array will represent a column inside our slot machine
+  //We need to generate what is inside each one of them
+  const reels = [[],[],[]]; 
+  for (let i = 0; i < COLS; i++){
+
+       const reelSymbols  = [...symbols];
+       for (let j = 0; j < ROWS; j++){
+         const randomIndex  = Math.floor(Math.random() * reelSymbols.length);
+          const selectedSymbol = reelSymbols[randomIndex];
+       }
+  }
+
+}
+spin();
 
 
 
@@ -126,5 +154,6 @@ let balance = deposit();
 //7.
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
+
 
 
