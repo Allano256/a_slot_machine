@@ -249,3 +249,158 @@ game();
 
 
 
+//Async/Await
+
+//Async works together with await, inorder tO method chain activities 
+//We craete an async function to contain all the three functions.
+//A function declared with async returns an empty Promise, await makes an Async function wait before continuing
+//Then if one of the conditions is false we create a try/catch to grab the errors
+//Using Async and await we can write asynchronous code in a synchronous manner.
+
+
+// function walkDog(){
+//    return new Promise((resolve, reject) =>{
+//      setTimeout(() => {
+
+//        const dogWalked = true;
+
+//        if(dogWalked){
+//            resolve("You walked the dog")
+//        } else {
+//            reject("You didnt walk the dog")
+//        }
+
+//      }, 1500);
+//    });
+// }
+
+// function cleanedKitchen(){
+//    return new Promise((resolve, reject) => {
+//      setTimeout(() => {
+//       const washedDishes = True;
+//       if(washedDishes){
+//        resolve("You washed the utencils")
+//       } else{
+//          reject("You have unclean utencils")
+//       }
+
+//      }, 1000)
+//    });
+// }
+
+// function takeOutTrash() {
+//    return new Promise((resolve,reject) => {
+//      setTimeout(() =>{
+//        const takeOutTrash = True;
+//        if(takeOutTrash){
+//            resolve("yOU TOOK OUT THE TRASH")
+//        }  else {
+//            reject("Please take out the trash")
+//        }
+
+//      }, 1000)
+
+//    });
+// }
+
+// async function doChores(){
+
+//    try{
+//       const walkDogResult = await walkDog();
+//       console.log(walkDogResult);
+   
+//       const cleanedKitchenResult = await cleanedKitchen();
+//       console.log(cleanedKitchenResult);
+   
+//       const takeOutTrashResult = await takeOutTrash();
+//       console.log(takeOutTrashResult);
+   
+//       console.log("You finished all the chores!");
+
+//    } catch {
+//       console.error(error);
+//    }
+  
+// }
+
+
+
+//PROMISE
+
+//An object that manages asynchronous operations.
+//Wrap a Promise Object around {asynchronous code}
+// "I promise to return a value"
+// PENDING -> RESOLVED or REJECTED
+// new Promise ((resolve, reject) => {asynchronous code})
+//A container for a future value
+
+// function walkDog(){
+//    return new Promise((resolve, reject) =>{
+//      setTimeout(() => {
+
+//        const dogWalked = true;
+
+//        if(dogWalked){
+//            resolve("You walked the dog")
+//        } else {
+//            reject("You didnt walk the dog")
+//        }
+
+//      }, 1500);
+//    });
+// }
+
+// function cleanedKitchen(){
+//    return new Promise((resolve, reject) => {
+//      setTimeout(() => {
+//       const washedDishes = True;
+//       if(washedDishes){
+//        resolve("You washed the utencils")
+//       } else{
+//          reject("You have unclean utencils")
+//       }
+
+//      }, 1000)
+//    });
+// }
+
+// function takeOutTrash() {
+//    return new Promise((resolve,reject) => {
+//      setTimeout(() =>{
+//        const takeOutTrash = True;
+//        if(takeOutTrash){
+//            resolve("yOU TOOK OUT THE TRASH")
+//        }  else {
+//            reject("Please take out the trash")
+//        }
+
+//      }, 1000)
+
+//    });
+// }
+
+// walkDog().then(value => {console.log(value); return cleanedKitchen()} )
+//          .then(value =>  {console.log(value); return takeOutTrash()})
+//          .then(value => {console.log(value); console.log("You finished all the chores")});
+//          .catch(error => console.error(error));
+
+
+// Example:
+// In this example you use the fetch API to get a country, the response you convert
+// to Json format and then store it in a new variable data which you call and render the output of the country in that position.
+//We also need to handle errors if the page fails to load or anything and best practice is having it at the bottom of the page
+
+
+// const getCountryData = function(country){
+//    fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//      .then(response => response.json())
+//      .then(data => renderCountry(data[0]));
+//      .catch(err => alert(err) or console.log("` ${err}`"));
+// or create a function that will render an error.
+//      .finally
+
+
+// }
+
+// getCountryData();
+
